@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ПРОБЕЛ — Поволжская Республика Общества Белых Елей</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+ 
   <div class="archive-window">
-
+ 
     <div class="title-bar">
       <div class="title-bar-text">
         ПРОБЕЛ.EXE Ver. 1.0
@@ -20,75 +21,92 @@
         <div class="retro-btn">x</div>
       </div>
     </div>
-
-    <div class="layout-wrapper">
-
-      <div class="left-column"></div>
-
-      <div class="right-column">
-
-        <div class="page-header">
-          <div class="nav-links">
-            <a href="vestnik.html">вестник</a>
-            <a href="#">архивы</a>
-            <a href="#">библиотека</a>
-            <a href="#">радиостанция</a>
-            <a href="#">книга прибывших</a>
+ 
+    <div class="radio-widget">
+      <button class="radio-btn" id="radioToggle">▶</button>
+      <span class="radio-track" id="radioTrackName">радиостанция офлайн</span>
+      <audio id="bgPlayer" data-track-title="Название трека" loop>
+        <!-- Позже пропиши свой файл:
+        <source src="music/track1.mp3" type="audio/mpeg">
+        -->
+      </audio>
+    </div>
+ 
+    <div id="appContent">
+ 
+      <div class="layout-wrapper">
+ 
+        <div class="left-column"></div>
+ 
+        <div class="right-column">
+ 
+          <div class="page-header">
+            <div class="nav-links">
+              <a href="vestnik.html">вестник</a>
+              <a href="#">архивы</a>
+              <a href="#">библиотека</a>
+              <a href="#">радиостанция</a>
+              <a href="#">книга прибывших</a>
+            </div>
           </div>
-        </div>
-
-        <div class="content-split">
-
-          <div class="widget-column">
-            <div class="widget-box widget-first">
-              <h3 class="widget-title">Архивариус</h3>
-              <div class="profile-pic"></div>
-              <p style="margin:0;">[твой текст о персонаже-рассказчике здесь]</p>
-              <div style="clear: both;"></div>
-            </div>
-
-            <div class="widget-box widget-second">
-              <h3 class="widget-title">Забрать бейдж</h3>
-              <div class="badge-placeholder">ПРОБЕЛ</div>
-              <textarea class="copy-box" readonly><a href="https://пробел.рф"><img src="images/badge.png" alt="ПРОБЕЛ"></a></textarea>
-            </div>
-
-            <div class="widget-box widget-third">
-              <h3 class="widget-title">Признаки жизни</h3>
-              <div style="text-align:center;">
-                <span class="counter-display" id="counterValue">......</span>
-                <p style="font-size:11px; margin-top:8px;">посетителей поддержало мир из комы</p>
+ 
+          <div class="content-split">
+ 
+            <div class="widget-column">
+              <div class="widget-box widget-first">
+                <h3 class="widget-title">Архивариус</h3>
+                <div class="profile-pic"></div>
+                <p style="margin:0;">[твой текст о персонаже-рассказчике здесь]</p>
+                <div style="clear: both;"></div>
+              </div>
+ 
+              <div class="widget-box widget-second">
+                <h3 class="widget-title">Забрать бейдж</h3>
+                <div class="badge-placeholder">ПРОБЕЛ</div>
+                <textarea class="copy-box" readonly><a href="https://пробел.рф"><img src="images/badge.png" alt="ПРОБЕЛ"></a></textarea>
+              </div>
+ 
+              <div class="widget-box widget-third">
+                <h3 class="widget-title">Признаки жизни</h3>
+                <div style="text-align:center;">
+                  <span class="counter-display" id="counterValue">......</span>
+                  <p style="font-size:11px; margin-top:8px;">посетителей поддержало мир из комы</p>
+                </div>
               </div>
             </div>
+ 
+            <div class="post-column">
+              <div class="post-banner"></div>
+              <h2>Добро пожаловать в Архив</h2>
+              <p>
+                Это личный дневник-архив вымышленного государства.
+                Заходите, смотрите, оставляйте след в Книге прибывших.
+              </p>
+              <a href="#" class="read-more">читать дальше...</a>
+            </div>
+ 
           </div>
-
-          <div class="post-column">
-            <div class="post-banner"></div>
-            <h2>Добро пожаловать в Архив</h2>
-            <p>
-              Это личный дневник-архив вымышленного государства.
-              Заходите, смотрите, оставляйте след в Книге прибывших.
-            </p>
-            <a href="#" class="read-more">читать дальше...</a>
-          </div>
-
         </div>
       </div>
+ 
+      <script>
+        const COUNTER_KEY = 'probel-rf-samara-arhiv-2026-x9k2';
+        fetch(`https://countapi.mileshilliard.com/api/v1/hit/${COUNTER_KEY}`)
+          .then(response => response.json())
+          .then(data => {
+            const padded = String(data.value).padStart(6, '0');
+            document.getElementById('counterValue').textContent = padded;
+          })
+          .catch(() => {
+            document.getElementById('counterValue').textContent = 'ERROR';
+          });
+      </script>
+ 
     </div>
+ 
   </div>
-
-  <script>
-    const COUNTER_KEY = 'probel-rf-samara-arhiv-2026-x9k2';
-    fetch(`https://countapi.mileshilliard.com/api/v1/hit/${COUNTER_KEY}`)
-      .then(response => response.json())
-      .then(data => {
-        const padded = String(data.value).padStart(6, '0');
-        document.getElementById('counterValue').textContent = padded;
-      })
-      .catch(() => {
-        document.getElementById('counterValue').textContent = 'ERROR';
-      });
-  </script>
-
+ 
+  <script src="app.js"></script>
+ 
 </body>
 </html>

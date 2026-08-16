@@ -352,3 +352,38 @@ body {
   color: var(--accent-color);
   font-style: italic;
 }
+.radio-widget {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  background-color: var(--box-bg);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 15px;
+}
+.radio-btn {
+  width: 26px;
+  height: 22px;
+  background-color: var(--window-highlight);
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid var(--window-shadow);
+  border-bottom: 1px solid var(--window-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+.radio-btn:active {
+  border-top: 1px solid var(--window-shadow);
+  border-left: 1px solid var(--window-shadow);
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+.radio-track {
+  font-size: 12px;
+  color: var(--accent-color);
+  font-style: italic;
+}

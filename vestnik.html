@@ -5,169 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Вестник — ПРОБЕЛ</title>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <style>
-    :root {
-      --bg-color: #0a0807;
-      --box-bg: #15100e;
-      --border-color: #4a3223;
-      --accent-color: #a67c3d;
-      --text-color: #b8a892;
- 
-      --window-highlight: #d9c9a8;
-      --window-shadow: #1a1210;
-      --title-bar-start: #3a1216;
-      --title-bar-end: #7a2e2e;
- 
-      --font-pixel: "Courier New", Courier, monospace;
-      --font-romantic: "Georgia", serif;
-    }
- 
-    ::-webkit-scrollbar { width: 17px; height: 17px; }
-    ::-webkit-scrollbar-track {
-      background-color: #0f0c0a;
-      box-shadow: inset 1px 1px 0px var(--window-shadow), inset -1px -1px 0px #000;
-    }
-    ::-webkit-scrollbar-thumb {
-      background-color: var(--window-highlight);
-      border-top: 1px solid #ffffff;
-      border-left: 1px solid #ffffff;
-      border-right: 1px solid var(--window-shadow);
-      border-bottom: 1px solid var(--window-shadow);
-    }
-    ::-webkit-scrollbar-corner { background-color: var(--bg-color); }
- 
-    body {
-      background-color: var(--bg-color);
-      background-image: radial-gradient(circle at center, #15100e 0%, #0a0807 100%);
-      color: var(--text-color);
-      font-family: var(--font-pixel);
-      font-size: 13px;
-      margin: 0;
-      padding: 30px;
-      display: flex;
-      justify-content: center;
-    }
- 
-    .archive-window {
-      background-color: var(--bg-color);
-      border-top: 2px solid var(--window-highlight);
-      border-left: 2px solid var(--window-highlight);
-      border-right: 2px solid var(--window-shadow);
-      border-bottom: 2px solid var(--window-shadow);
-      padding: 2px;
-      width: 100%;
-      max-width: 954px;
-      box-shadow: 5px 5px 15px rgba(0,0,0,0.8);
-      box-sizing: border-box;
-      zoom: 2.6;
-    }
- 
-    .title-bar {
-      background: linear-gradient(90deg, var(--title-bar-start), var(--title-bar-end));
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 6px 8px;
-      margin-bottom: 15px;
-    }
-    .title-bar-text {
-      color: #ffffff;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 18px;
-      letter-spacing: 1px;
-      text-shadow: 1px 1px 0px #000;
-    }
-    .title-bar-controls { display: flex; gap: 4px; }
-    .retro-btn {
-      width: 20px;
-      height: 18px;
-      background-color: var(--window-highlight);
-      border-top: 1px solid #ffffff;
-      border-left: 1px solid #ffffff;
-      border-right: 1px solid var(--window-shadow);
-      border-bottom: 1px solid var(--window-shadow);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #000;
-      font-family: "Tahoma", "Arial", sans-serif;
-      font-size: 12px;
-      font-weight: 900;
-      cursor: pointer;
-      line-height: 1;
-      padding-bottom: 2px;
-      box-sizing: border-box;
-    }
- 
-    .top-header {
-      background-color: var(--box-bg);
-      border: 1px solid var(--border-color);
-      height: 90px;
-      background-image: linear-gradient(135deg, #2a1a14 0%, #15100e 100%);
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-end;
-      padding: 10px;
-      box-sizing: border-box;
-      margin: 0 15px 15px 15px;
-    }
-    .nav-links {
-      background-color: rgba(21, 16, 14, 0.85);
-      padding: 5px 15px;
-      border: 1px dotted var(--accent-color);
-    }
-    .nav-links a {
-      color: var(--accent-color);
-      text-decoration: none;
-      margin-left: 15px;
-      font-weight: bold;
-      text-transform: lowercase;
-    }
-    .nav-links a:hover { color: #e6d5b8; }
- 
-    .vestnik-list {
-      padding: 0 15px 15px 15px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
- 
-    .post-entry {
-      background-color: rgba(21, 16, 14, 0.9);
-      border: 1px solid var(--border-color);
-      padding: 15px;
-      box-sizing: border-box;
-    }
-    .post-entry-title {
-      font-family: var(--font-romantic);
-      color: var(--accent-color);
-      font-style: italic;
-      margin: 0 0 5px 0;
-      font-size: 20px;
-    }
-    .post-entry-date {
-      font-size: 11px;
-      color: var(--border-color);
-      margin-bottom: 10px;
-      border-bottom: 1px dashed var(--border-color);
-      padding-bottom: 8px;
-    }
-    .post-entry-body {
-      line-height: 1.6;
-      text-align: justify;
-    }
-    .post-entry-body p { margin: 0 0 10px 0; }
- 
-    .status-msg {
-      text-align: center;
-      padding: 40px 15px;
-      color: var(--accent-color);
-      font-style: italic;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
  
@@ -182,85 +20,101 @@
       </div>
     </div>
  
-    <div class="top-header">
-      <div class="nav-links">
-        <a href="index.html">главная</a>
-        <a href="vestnik.html">вестник</a>
-        <a href="#">архивы</a>
-        <a href="#">библиотека</a>
-        <a href="#">радиостанция</a>
-        <a href="#">книга прибывших</a>
-      </div>
+    <div class="radio-widget">
+      <button class="radio-btn" id="radioToggle">▶</button>
+      <span class="radio-track" id="radioTrackName">радиостанция офлайн</span>
+      <audio id="bgPlayer" data-track-title="Название трека" loop>
+        <!-- Позже пропиши свой файл:
+        <source src="music/track1.mp3" type="audio/mpeg">
+        -->
+      </audio>
     </div>
  
-    <div class="vestnik-list" id="vestnikList">
-      <div class="status-msg">Загружаю записи из архива...</div>
+    <div id="appContent">
+ 
+      <div class="page-header">
+        <div class="nav-links">
+          <a href="index.html">главная</a>
+          <a href="vestnik.html">вестник</a>
+          <a href="#">архивы</a>
+          <a href="#">библиотека</a>
+          <a href="#">радиостанция</a>
+          <a href="#">книга прибывших</a>
+        </div>
+      </div>
+ 
+      <div class="vestnik-list" id="vestnikList">
+        <div class="status-msg">Загружаю записи из архива...</div>
+      </div>
+ 
+      <script>
+        const REPO = 'zaposhok1584/probel';
+        const listEl = document.getElementById('vestnikList');
+ 
+        function parsePost(raw) {
+          const match = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
+          if (!match) return { title: 'Без названия', date: '', body: raw };
+          const frontmatter = match[1];
+          const body = match[2];
+          const titleMatch = frontmatter.match(/title:\s*(.*)/);
+          const dateMatch = frontmatter.match(/date:\s*(.*)/);
+          let title = titleMatch ? titleMatch[1].trim() : 'Без названия';
+          title = title.replace(/^['"]|['"]$/g, '');
+          const date = dateMatch ? dateMatch[1].trim() : '';
+          return { title, date, body };
+        }
+ 
+        function formatDate(isoString) {
+          if (!isoString) return '';
+          const d = new Date(isoString);
+          if (isNaN(d)) return isoString;
+          return d.toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+ 
+        async function loadPosts() {
+          try {
+            const res = await fetch(`https://api.github.com/repos/${REPO}/contents/posts`);
+            if (!res.ok) {
+              listEl.innerHTML = '<div class="status-msg">Записей пока нет.</div>';
+              return;
+            }
+            const files = await res.json();
+            const mdFiles = files.filter(f => f.name.endsWith('.md'));
+ 
+            if (mdFiles.length === 0) {
+              listEl.innerHTML = '<div class="status-msg">Записей пока нет.</div>';
+              return;
+            }
+ 
+            const posts = await Promise.all(mdFiles.map(async (file) => {
+              const rawRes = await fetch(file.download_url);
+              const rawText = await rawRes.text();
+              return parsePost(rawText);
+            }));
+ 
+            posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+ 
+            listEl.innerHTML = posts.map(post => `
+              <div class="post-entry">
+                <h2 class="post-entry-title">${post.title}</h2>
+                <div class="post-entry-date">${formatDate(post.date)}</div>
+                <div class="post-entry-body">${marked.parse(post.body)}</div>
+              </div>
+            `).join('');
+ 
+          } catch (err) {
+            listEl.innerHTML = '<div class="status-msg">Не удалось загрузить записи. Попробуй обновить страницу.</div>';
+          }
+        }
+ 
+        loadPosts();
+      </script>
+ 
     </div>
  
   </div>
  
-  <script>
-    const REPO = 'zaposhok1584/probel';
-    const listEl = document.getElementById('vestnikList');
- 
-    function parsePost(raw) {
-      const match = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
-      if (!match) return { title: 'Без названия', date: '', body: raw };
-      const frontmatter = match[1];
-      const body = match[2];
-      const titleMatch = frontmatter.match(/title:\s*(.*)/);
-      const dateMatch = frontmatter.match(/date:\s*(.*)/);
-      let title = titleMatch ? titleMatch[1].trim() : 'Без названия';
-      title = title.replace(/^['"]|['"]$/g, '');
-      const date = dateMatch ? dateMatch[1].trim() : '';
-      return { title, date, body };
-    }
- 
-    function formatDate(isoString) {
-      if (!isoString) return '';
-      const d = new Date(isoString);
-      if (isNaN(d)) return isoString;
-      return d.toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' });
-    }
- 
-    async function loadPosts() {
-      try {
-        const res = await fetch(`https://api.github.com/repos/${REPO}/contents/posts`);
-        if (!res.ok) {
-          listEl.innerHTML = '<div class="status-msg">Записей пока нет.</div>';
-          return;
-        }
-        const files = await res.json();
-        const mdFiles = files.filter(f => f.name.endsWith('.md'));
- 
-        if (mdFiles.length === 0) {
-          listEl.innerHTML = '<div class="status-msg">Записей пока нет.</div>';
-          return;
-        }
- 
-        const posts = await Promise.all(mdFiles.map(async (file) => {
-          const rawRes = await fetch(file.download_url);
-          const rawText = await rawRes.text();
-          return parsePost(rawText);
-        }));
- 
-        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
- 
-        listEl.innerHTML = posts.map(post => `
-          <div class="post-entry">
-            <h2 class="post-entry-title">${post.title}</h2>
-            <div class="post-entry-date">${formatDate(post.date)}</div>
-            <div class="post-entry-body">${marked.parse(post.body)}</div>
-          </div>
-        `).join('');
- 
-      } catch (err) {
-        listEl.innerHTML = '<div class="status-msg">Не удалось загрузить записи. Попробуй обновить страницу.</div>';
-      }
-    }
- 
-    loadPosts();
-  </script>
+  <script src="app.js"></script>
  
 </body>
 </html>
