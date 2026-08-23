@@ -48,18 +48,16 @@
       // скрипты внутри appContent не запускаются сами при вставке через
       // innerHTML — пересоздаём их вручную, чтобы они реально выполнились
       const scripts = contentArea.querySelectorAll('script');
-      scripts.forEach(function (oldScript) {
-        const newScript = document.createElement('script');
-        if (oldScript.src) {
-          newScript.src = oldScript.src;
-        } else {
-                  if (oldScript.src) {
-          newScript.src = oldScript.src;
-          newScript.async = false; // сохраняем порядок выполнения скриптов
-        } else {
-        }
-        oldScript.replaceWith(newScript);
-      });
+    scripts.forEach(function (oldScript) {
+  const newScript = document.createElement('script');
+  if (oldScript.src) {
+    newScript.src = oldScript.src;
+    newScript.async = false; // сохраняем порядок выполнения скриптов
+  } else {
+    newScript.textContent = oldScript.textContent;
+  }
+  oldScript.replaceWith(newScript);
+});
  
       document.title = doc.title;
  
