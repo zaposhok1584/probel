@@ -53,7 +53,10 @@
         if (oldScript.src) {
           newScript.src = oldScript.src;
         } else {
-          newScript.textContent = oldScript.textContent;
+                  if (oldScript.src) {
+          newScript.src = oldScript.src;
+          newScript.async = false; // сохраняем порядок выполнения скриптов
+        } else {
         }
         oldScript.replaceWith(newScript);
       });

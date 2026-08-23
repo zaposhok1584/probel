@@ -37,7 +37,7 @@
  
       <div class="layout-wrapper">
  
-        <div class="left-column"></div>
+        <div class="left-column" id="characterViewport"></div>
  
         <div class="right-column">
  
@@ -101,7 +101,11 @@
           .catch(() => {
             document.getElementById('counterValue').textContent = 'ERROR';
           });
+          
       </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="character.js"></script>
  
     </div>
  
