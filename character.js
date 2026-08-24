@@ -99,4 +99,23 @@
     camera.updateProjectionMatrix();
     renderer.setSize(w, h);
   });
+    // ---------- СМЕНА НАРЯДА ПО КНОПКАМ ----------
+  const outfits = [
+    { shirt: 0x2255aa, pants: 0x333333, hair: 0x1a1a1a }, // обычный
+    { shirt: 0x7a2e2e, pants: 0x1a1a1a, hair: 0x3a1216 }, // гвардия (тёмно-красный)
+    { shirt: 0xa67c3d, pants: 0x15100e, hair: 0x4a3223 }, // архивариус (бронзовый)
+  ];
+
+  const controlsPanel = document.querySelector('.character-controls');
+  if (controlsPanel) {
+    controlsPanel.querySelectorAll('.outfit-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const outfit = outfits[parseInt(btn.dataset.outfit, 10)];
+        if (!outfit) return;
+        shirtMaterial.color.set(outfit.shirt);
+        pantsMaterial.color.set(outfit.pants);
+        hairMaterial.color.set(outfit.hair);
+      });
+    });
+  }
 })();
